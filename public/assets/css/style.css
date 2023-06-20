@@ -1,0 +1,894 @@
+:root {
+
+    --font-family: system-ui;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #aabbb4;
+    height: 110vh;
+}
+
+.chat-box-message {
+
+    position: relative;
+}
+
+.chat-container {
+
+    height: 100vh;
+    width: 16rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+.chat-line-message {
+
+    opacity: 0;
+    width: 10rem;
+    height: 1px;
+    background-color: black;
+    border: 1px solid #000000;
+
+}
+
+.chat-line-message-op {
+    opacity: 0;
+    width: 10rem;
+    height: 1px;
+    background-color: #000000;
+    border: 1px solid #000000;
+}
+
+.chat-room-aside {
+    
+    width: 30%;
+    height: 25rem;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.chat-room-box {
+
+    height: 30rem;
+    display: flex;
+}
+
+.chat-room-h1 {
+
+    font-family: var(--font-family);
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.chat-room-h3 {
+
+    font-size: 1rem;
+    text-align: center;
+    font-family: var(--font-family);
+    height: 3rem;
+}
+
+.chat-room-container {
+
+    height: 45rem
+}
+
+.chat-room-form {
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-room-list {
+
+    width: 70%;
+    height: 25rem;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat-room-message {
+
+    height: 23rem;
+    width: 15rem;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    /*display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;*/
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: flex-end;
+    overflow: scroll;
+
+}
+
+.chat-room-save-delete-box {
+
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: inherit;
+    border: 2px solid;
+    border-radius: 10px;
+    margin: 0.5rem auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.chat-room-save-delete-box.active ~ .chat-room-save-delete-div {
+
+    opacity: 1;
+    height: 7rem;
+    z-index: 0;
+}
+
+.chat-room-save-delete-box.active .chat-room-save-delete-span-one {
+
+    transform: rotate(45deg) translate(3px, 2px);
+}
+
+.chat-room-save-delete-box.active .chat-room-save-delete-span-two {
+
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.chat-room-save-delete-span-one {
+
+    width: 10px;
+    border-bottom: 2px solid black;
+    transition: transform .3s;
+}
+
+.chat-room-save-delete-span-two {
+
+    width: 15px;
+    border-bottom: 2px solid black;
+    transition: transform .3s;
+}
+
+.chat-room-save-delete-div {
+
+    height: 0;
+    width: 12rem;
+    position: absolute;
+    top: 4.7rem;
+    left: 1.5rem;
+    background-color: rgb(233 233 233);
+    font-family: system-ui;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: all .3s;
+    z-index: -1;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: -1px 1px 5px black;
+}
+
+.chat-room-save-delete-box label {
+
+    width: 4rem;
+}
+
+.save-form {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.save-form label {
+    font-weight: bold;
+    width: 3.5rem;
+}
+.save-conversation {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.save-conversation-submit {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.save-conversation-submit:hover {
+
+    
+}
+
+.delete-form {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.delete-form label {
+    font-weight: bold;
+    width: 3.5rem;
+}
+.delete-conversation {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.delete-conversation-submit {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.delete-conversation-submit:hover {
+
+
+}
+
+.load-form {
+
+    display: flex;
+    justify-content: space-between;
+}
+.load-form label {
+    font-weight: bold;
+    width: 3.5rem;
+}
+.load-conversation {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.load-conversation-submit {
+
+    cursor: pointer;
+    width: 3.5rem;
+}
+.load-conversation-submit:hover {
+
+
+}
+
+.chat-room-send-message {
+
+    width: 15rem;
+    height: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.chat-room-send-message-submit {
+
+    margin: 0.5rem auto;
+    width: 8rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 1.5rem;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.chat-room-title-number {
+
+    text-align: center;
+    font-family: var(--font-family);
+    margin-bottom: 0;
+}
+
+.chat-room-ul {
+
+    height: 25rem;
+    padding: 0;
+}
+
+.chat-room-ul-a-li {
+
+    text-decoration: none;
+    color: black;
+    background-color: rgb(194 208 197);
+    display: block;
+    cursor: pointer;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+.chat-room-ul-li {
+
+    text-align: center;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: .8rem;
+    list-style-type: none;
+}
+
+.chat-room-ul-li.room-num {
+
+    border: 3px solid black;
+    margin-bottom: 1rem;
+}
+
+.chat-span-message {
+
+    width: 90%;
+    display: block;
+    font-family: var(--font-family);
+    /* word-break: break-all; */
+    width: 11rem;
+}
+
+.chat-span-message-wrap {
+
+    display: flex;
+    gap: .5rem;
+    padding: 0.5rem;
+    width: 14rem;
+    animation: .3s messOn
+}
+.chat-span-message-wrap-op {
+    opacity: 0;
+}
+
+@keyframes messOn {
+
+    0% {
+
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    70% {
+        opacity: .7;
+        transform: scale(1.05);
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.chat-span-message-wrap-op {
+    opacity: 0;
+}
+
+.chat-span-user {
+
+    font-weight: bold;
+    font-family: var(--font-family);
+    word-wrap: break-word;
+}
+
+.display-status {
+
+    position: absolute;
+    height: 2rem;
+    width: 7rem;
+    background-color: #1ba049;
+    top: 10rem;
+    left: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    transform: translateY(-25px);
+    opacity: 0;
+    transition: transform .3s, opacity .3s;
+}
+.display-status.active {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.display-status-message {
+
+    margin: 0;
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.head-box-buttons {
+
+    height: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.head-box-buttons-back {
+
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left: -55px;
+    transition: background-color .2s;
+    border-radius: 15px;
+}
+.head-box-buttons-back:hover {
+
+    background-color: #a1b0aa;
+}
+
+.head-box-buttons-back-img {
+
+    height: 50%;
+    position: relative;
+    right: 10px;
+}
+
+.head-box-buttons-logout {
+
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: black;
+    transition: background-color .2s;
+    border-radius: 15px;
+}
+.head-box-buttons-logout:hover {
+
+    background-color: #a1b0aa;
+}
+
+.login-box {
+
+    height: 18rem;
+    width: 15rem;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 35px;
+    font-family: var(--font-family);
+    position: relative;
+}
+
+.login-box-form {
+
+    height: 12rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.login-box-form-anchor-signup {
+
+    text-align: right;
+}
+
+.login-box-form-input-username {
+
+    margin: 0 auto;
+    background-color: inherit;
+}
+
+.login-box-form-input-password {
+
+    margin: 0 auto;
+    background-color: inherit;
+}
+
+.login-box-form-label-username {
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-box-form-label-password {
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-box-form-signup-button {
+
+    margin: 0 auto;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: inherit;
+    height: 1.5rem;
+    font-size: .9rem;
+    position: relative;
+    top: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.login-box-form-submit {
+
+    margin: 0 auto;
+    width: 8rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: inherit;
+    height: 1.5rem;
+    font-size: .9rem;
+    position: relative;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.login-box-h3 {
+    
+    text-align: center;
+    height: 20%;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.login-error {
+
+    position: absolute;
+    top: -100px;
+    width: 15rem;
+}
+
+.login-error-p {
+
+    background-color: #78a678;
+    font-family: var(--font-family);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+@media (min-width: 325px) {
+
+    .chat-container {
+
+        width: 20rem;
+    }
+
+    .chat-room-message {
+
+        width: 19rem;
+        height: 22rem;
+    }
+
+    .chat-room-h1 {
+
+        font-size: 2.2rem;
+    }
+
+    .chat-room-h3 {
+
+        font-size: 1.1rem;
+    }
+
+    .chat-room-save-delete-box {
+
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+
+    .chat-room-save-delete-div {
+
+        top: 4.3rem;
+        left: 3.5rem;
+    }
+
+    .chat-room-save-delete-span-one {
+        width: 13px;
+
+    }
+
+    .chat-room-save-delete-span-two {
+        width: 18px;
+
+    }
+
+    .chat-room-send-message {
+
+        width: 19rem;
+    }
+
+    .chat-room-ul-a-li {
+
+        width: 11rem;
+        margin: 0 auto;
+    }
+
+    .chat-room-ul-li {
+
+        font-size: 1rem;
+    }
+
+    .chat-room-title-number {
+
+        font-size: 1.5rem;
+    }
+
+    .chat-span-message {
+
+        width: 15rem;
+    }
+
+    .chat-span-message-wrap {
+
+        width: 18rem;
+    }
+
+    .head-box-buttons-back {
+
+        left: -125px;
+    }
+}
+
+@media (min-width: 455px) {
+
+    .chat-container {
+
+        width: 28rem;
+    }
+
+    .chat-line-message {
+
+        width: 17rem;
+    }
+
+    .chat-room-h3 {
+
+        font-size: 1.2rem;
+    }
+
+    .chat-room-message {
+
+        width: 27rem;
+    }
+
+    .chat-room-save-delete-div {
+
+        top: 4.7rem;
+        left: 5.5rem;
+        width: 16rem;
+    }
+
+    .chat-room-send-message {
+
+        width: 27rem;
+    }
+    
+    .chat-room-send-message-submit {
+
+        width: 9rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chat-span-message {
+
+        width: 23rem;
+    }
+
+    .chat-room-ul-a-li {
+
+        width: 13rem;
+        margin: 0 auto;
+    }
+
+    .chat-room-ul-li {
+
+        font-size: 1rem;
+    }
+
+    .display-status {
+
+        left: 5rem;
+    }
+
+    .head-box-buttons-back {
+
+        left: -250px;
+    }
+
+    .save-conversation, .delete-conversation, .load-conversation {
+
+        width: 5.5rem;
+    }
+
+    .save-conversation-submit, .delete-conversation-submit, .load-conversation-submit {
+
+        width: 4.5rem;
+    }
+    
+}
+
+@media (min-width: 800px) {
+
+    .chat-container {
+
+        width: 49rem;
+    }
+
+
+    .chat-room-h1 {
+
+        font-size: 2.8rem;
+    }
+
+    .chat-room-h3 {
+
+        font-size: 1.6rem;
+    }
+
+    .chat-room-ul-li {
+
+        font-size: 1.2rem;
+    }
+
+    .chat-room-save-delete-div {
+
+        left: 15.5rem;
+    }
+
+    .head-box-buttons-back {
+
+        width: 10rem;
+        font-size: 1.3rem;
+        left: -480px;
+    }
+    
+    .head-box-buttons-back-img {
+
+        top: 1px;
+    }
+
+    .head-box-buttons-logout {
+
+        width: 10rem;
+        font-size: 1.3rem;
+    }
+
+    .login-box {
+
+        height: 20rem;
+        width: 22rem;
+
+    }
+
+    .login-box-h3 {
+
+        font-size: 2.5rem;
+    }
+
+    .login-box-form-label-username, .login-box-form-label-password {
+
+        font-size: 1.3rem;
+    }
+
+    .login-box-form-input-username, .login-box-form-input-password {
+
+        width: 16rem;
+    }
+
+    .login-box-form-submit {
+
+        width: 10rem;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 2px;
+    }
+
+    .login-box-form-signup-button {
+
+        width: 7rem;
+        font-size: 1rem;
+
+    }
+
+    .login-error {
+
+        width: 22rem;
+    }
+}
+
+@media (min-width: 1150px) {
+
+    .chat-container {
+
+        width: 71rem;
+    }
+
+    .chat-room-h1 {
+
+        font-size: 3rem;
+    }
+
+    .chat-room-h3 {
+
+        font-size: 1.8rem;
+    }
+
+    .chat-room-message {
+
+        width: 40rem;
+    }
+
+    .chat-room-save-delete-div {
+
+        left: 26.5rem;
+    }
+
+    .chat-room-send-message {
+
+        width: 40rem;
+    }
+
+    .chat-room-send-message-submit {
+
+        width: 11rem;
+        height: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .chat-room-ul-li {
+
+        font-size: 1.4rem;
+    }
+
+    .chat-span-message {
+
+        width: 34rem;
+    }
+
+    .chat-span-message-wrap {
+
+        width: 35rem;
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .head-box-buttons-back {
+
+        font-size: 1.6rem;
+        left: -825px;
+    }
+
+    .head-box-buttons-back-img {
+
+        top: 3px;
+    }
+
+    .head-box-buttons-logout {
+
+        font-size: 1.6rem;
+    }
+}
