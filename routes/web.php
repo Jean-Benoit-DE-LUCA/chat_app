@@ -32,10 +32,10 @@ Route::post('/signup', [RegistrationController::class, 'signupPostAction']);
 
 Route::get('/chat', [ChatController::class, 'chatAction'])->middleware(['auth', 'member'])->name('chat');
 
-Route::get('/chat/getusers', [ChatController::class, 'chatGetAction']);
+Route::get('/chat/getusers', [ChatController::class, 'chatGetAction'])->middleware(['auth', 'member']);
 
 Route::get('/chat/{id}', [ChatController::class, 'chatRoomAction'])->middleware(['auth', 'member'])->name('chat');
-Route::post('/chat/{id}', [ChatController::class, 'chatRoomPostAction'])->name('chatPost');
+Route::post('/chat/{id}', [ChatController::class, 'chatRoomPostAction'])->middleware(['auth', 'member'])->name('chatPost');
 
-Route::get('/chat/{id}/load/{loadNumber}', [ChatController::class, 'chatRoomGetLoadAction']);
-Route::delete('/chat/{id}/delete/{deleteNumber}', [ChatController::class, 'chatRoomDeleteAction']);
+Route::get('/chat/{id}/load/{loadNumber}', [ChatController::class, 'chatRoomGetLoadAction'])->middleware(['auth', 'member']);
+Route::delete('/chat/{id}/delete/{deleteNumber}', [ChatController::class, 'chatRoomDeleteAction'])->middleware(['auth', 'member']);

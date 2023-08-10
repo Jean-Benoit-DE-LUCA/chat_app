@@ -61,6 +61,7 @@
     </div>
 
     {{ Form::open(array('method' => 'POST', 'class' => 'chat-room-form')) }}
+        @csrf
         <input class="chat-room-send-message" type="text" name="send-message" id="send-message" placeholder="Type text.."/>
         <input class="username-send" type="hidden" name="userName" id="username-send" value="{{ $username }}"/>
         <input class="userid-send" type="hidden" name="userid-send" id="userid-send" value="{{ $userid }}"/>

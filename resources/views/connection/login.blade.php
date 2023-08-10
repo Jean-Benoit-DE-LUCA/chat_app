@@ -9,7 +9,7 @@
             </div>
         @endif
         <h3 class="login-box-h3">Login</h3>
-        <form class="login-box-form" action="" method="POST">
+        {{ Form::open(array("method" => "POST", "class" => "login-box-form"))}}
             @csrf
             <label class="login-box-form-label-username" for="username">Username:</label>
             <input class="login-box-form-input-username" type="text" name="username" id="username"/>
@@ -21,6 +21,6 @@
             <a class="login-box-form-anchor-signup" href="{{ url('/signup') }}">
                 <button class="login-box-form-signup-button" type="button" name="login-box-form-signup-button">Sign up</button>
             </a>
-        </form>
+        {{ Form::close() }}
     </section>
 @endsection
